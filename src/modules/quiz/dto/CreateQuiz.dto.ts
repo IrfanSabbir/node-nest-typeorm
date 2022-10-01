@@ -10,4 +10,6 @@ export class CreateQuizDto {
   @Length(10)
   description: string;
 
+  isActive?: boolean;
+
 }

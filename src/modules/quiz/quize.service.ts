@@ -6,14 +6,15 @@ import { Quiz } from './quiz.entity';
 
 @Injectable()
 export class QuizService {
+  constructor(
+    @InjectRepository(Quiz) private quizReqository: Repository<Quiz>,
+  ) {}
 
-  constructor(@InjectRepository(Quiz) private quizReqository: Repository<Quiz> ) {}
-
-  getService(): number[]  {
-    return [1,2,3]
+  getService(): number[] {
+    return [1, 2, 3];
   }
 
-  async postService(quizData: CreateQuizDto)  {
-    return await this.quizReqository.save(quizData)
+  async postService(quizData: CreateQuizDto) {
+    return await this.quizReqository.save(quizData);
   }
 }

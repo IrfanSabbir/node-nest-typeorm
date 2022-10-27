@@ -1,20 +1,14 @@
-import {
-  BaseEntity,
-  Column,
-  Entity,
-  PrimaryGeneratedColumn
-} from "typeorm";
+import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('questions')
 export class Question extends BaseEntity {
   @PrimaryGeneratedColumn({
-    comment: "Uniq Identifier"
+    comment: 'Uniq Identifier',
   })
   id: number;
 
   @Column({
-    type: "varchar"
+    type: 'varchar',
   })
   name: string;
-
 }

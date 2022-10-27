@@ -9,8 +9,8 @@ import { Quiz } from './quiz.entity';
 import { QuizService } from './quize.service';
 
 @Module({
-  imports: [ TypeOrmModule.forFeature([Quiz, Question]) ],
+  imports: [TypeOrmModule.forFeature([Quiz, Question])],
   controllers: [QuizController, QuestionController],
-  providers: [QuizService, QuestionService]
+  providers: [QuizService, QuestionService],
 })
 export class QuizModule {}

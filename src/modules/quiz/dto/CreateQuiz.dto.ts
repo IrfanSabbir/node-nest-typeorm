@@ -1,7 +1,6 @@
-import { IsNotEmpty, Length } from "class-validator"
+import { IsNotEmpty, Length } from 'class-validator';
 
 export class CreateQuizDto {
-
   @IsNotEmpty({ message: 'Title should not be empty' })
   @Length(3, 255)
   title: string;
@@ -11,5 +10,4 @@ export class CreateQuizDto {
   description: string;
 
   isActive?: boolean;
-
 }

@@ -16,6 +16,6 @@ export class QuizController {
   @HttpCode(200)
   @UsePipes(new ValidationPipe())
   async createQuiz(@Body() quizData: CreateQuizDto) {
-    return await this.quizService.postService(quizData)
+    return await this.quizService.postService(quizData);
   }
 }

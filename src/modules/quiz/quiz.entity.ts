@@ -1,32 +1,25 @@
-import {
-  BaseEntity,
-  Column,
-  Entity,
-  PrimaryGeneratedColumn
-} from "typeorm";
+import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('quizes')
 export class Quiz extends BaseEntity {
   @PrimaryGeneratedColumn({
-    comment: "Uniq Identifier"
+    comment: 'Uniq Identifier',
   })
   id: number;
 
   @Column({
-    type: "varchar"
+    type: 'varchar',
   })
   title: string;
 
   @Column({
-    type: "text"
+    type: 'text',
   })
   description: string;
 
-
   @Column({
-    type: "boolean",
+    type: 'boolean',
     default: 1,
   })
   isActive: boolean;
-
 }

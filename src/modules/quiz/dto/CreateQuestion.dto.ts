@@ -6,5 +6,5 @@ export class CreateQuestionDto {
   name: string;
 
   @IsNotEmpty()
-  quizid: number;
+  quizId: number;
 }

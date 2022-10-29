@@ -11,7 +11,18 @@ export class QuestionService {
     @InjectRepository(Question)
     private questionRepository: Repository<Question>,
   ) {}
-  async createQuestion(questionData: CreateQuestionDto, quiz: Quiz) {
+
+  async getQuestionById(id: number): Promise<Question> {
+    return await this.questionRepository.findOne({
+      where: { id },
+      relations: ['quiz', 'options'],
+    });
+  }
+
+  async createQuestion(
+    questionData: CreateQuestionDto,
+    quiz: Quiz,
+  ): Promise<Question> {
     const newQuestions = await this.questionRepository.save({
       name: questionData.name,
     });

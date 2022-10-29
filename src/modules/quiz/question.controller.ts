@@ -15,7 +15,6 @@ export class QuestionController {
   @HttpCode(200)
   async createQuestion(@Body() question: CreateQuestionDto): Promise<Question> {
     const quiz = await this.quizService.getQuizById(question.quizid);
-    console.log(quiz);
     return this.questionService.createQuestion(question, quiz);
   }
 }

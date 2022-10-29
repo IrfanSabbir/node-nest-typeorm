@@ -18,7 +18,6 @@ export class QuestionService {
 
     quiz.questions = [...quiz.questions, newQuestions];
     await quiz.save();
-    console.log(quiz);
 
     return newQuestions;
   }

@@ -14,6 +14,13 @@ export class QuizService {
     return [1, 2, 3];
   }
 
+  async getQuizById(id: number): Promise<Quiz> {
+    return await this.quizReqository.findOne({
+      where: { id: id },
+      relations: ['questions'],
+    });
+  }
+
   async postService(quizData: CreateQuizDto) {
     return await this.quizReqository.save(quizData);
   }

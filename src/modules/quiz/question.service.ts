@@ -15,10 +15,8 @@ export class QuestionService {
     const newQuestions = await this.questionRepository.save({
       name: questionData.name,
     });
-
     quiz.questions = [...quiz.questions, newQuestions];
     await quiz.save();
-
     return newQuestions;
   }
 }

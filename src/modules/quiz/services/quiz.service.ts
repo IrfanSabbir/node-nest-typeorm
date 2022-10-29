@@ -10,8 +10,14 @@ export class QuizService {
     @InjectRepository(Quiz) private quizReqository: Repository<Quiz>,
   ) {}
 
-  getService(): number[] {
-    return [1, 2, 3];
+  async getService(): Promise<[Quiz[], number]> {
+    return await this.quizReqository
+      .createQueryBuilder('q')
+      .leftJoinAndSelect('q.questions', 'qt')
+      // .leftJoinAndSelect('qt.options', 'o')
+      .skip(0)
+      .take(5)
+      .getManyAndCount();
   }
 
   async getQuizById(id: number): Promise<Quiz> {

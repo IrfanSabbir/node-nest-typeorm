@@ -9,14 +9,14 @@ import { QuizService } from '../services/quiz.service';
 export class QuizController {
   constructor(private quizService: QuizService) {}
   @Get('/')
-  getQuiz() {
-    this.quizService.getService();
+  async getQuiz(): Promise<[Quiz[], number]> {
+    return this.quizService.getService();
   }
 
   @Get('/:id')
   @HttpCode(200)
-  getQUizBYId(@Param('id', ParseIntPipe) id: number): Promise<Quiz> {
-    return this.quizService.getQuizById(id);
+  async getQUizBYId(@Param('id', ParseIntPipe) id: number): Promise<Quiz> {
+    return await this.quizService.getQuizById(id);
   }
 
   @Post('/')

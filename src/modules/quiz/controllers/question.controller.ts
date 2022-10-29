@@ -2,7 +2,7 @@ import { Body, Controller, HttpCode, Post } from '@nestjs/common';
 import { CreateQuestionDto } from '../dto/CreateQuestion.dto';
 import { Question } from '../entities/question.entity';
 import { QuestionService } from '../services/question.service';
-import { QuizService } from '../services/quize.service';
+import { QuizService } from '../services/quiz.service';
 
 @Controller('question')
 export class QuestionController {

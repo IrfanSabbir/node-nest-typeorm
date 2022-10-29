@@ -7,7 +7,7 @@ import { QuizController } from './controllers/quiz.controller';
 import { Quiz } from './entities/quiz.entity';
 import { Option } from './entities/option.entity';
 // import { QuizReqository } from './quiz.repository';
-import { QuizService } from './services/quize.service';
+import { QuizService } from './services/quiz.service';
 import { OptionController } from './controllers/option.controller';
 import { OptionService } from './services/option.service';
 

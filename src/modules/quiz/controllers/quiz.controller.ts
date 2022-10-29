@@ -3,7 +3,7 @@ import { Param, UsePipes } from '@nestjs/common/decorators';
 import { ParseIntPipe, ValidationPipe } from '@nestjs/common/pipes';
 import { CreateQuizDto } from '../dto/CreateQuiz.dto';
 import { Quiz } from '../entities/quiz.entity';
-import { QuizService } from '../services/quize.service';
+import { QuizService } from '../services/quiz.service';
 
 @Controller('quiz')
 export class QuizController {

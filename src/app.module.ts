@@ -1,12 +1,19 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { typeOrmConfig } from './config/typeorm.config';
+import { typeOrmConfigAsync } from './config/typeorm.config';
 import { QuizModule } from './modules/quiz/quiz.module';
+import { UserModule } from './modules/user/user.module';
 
 @Module({
-  imports: [QuizModule, TypeOrmModule.forRoot(typeOrmConfig)],
+  imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
+    QuizModule,
+    TypeOrmModule.forRootAsync(typeOrmConfigAsync),
+    UserModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

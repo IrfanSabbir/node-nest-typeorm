@@ -10,8 +10,8 @@ import { UserModule } from './modules/user/user.module';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
-    QuizModule,
     TypeOrmModule.forRootAsync(typeOrmConfigAsync),
+    QuizModule,
     UserModule,
   ],
   controllers: [AppController],

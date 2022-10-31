@@ -57,7 +57,7 @@ export const typeOrmAsyncConfig: TypeOrmModuleAsyncOptions = {
       keepConnectionAlive: true,
       charset: 'utf8mb4_unicode_ci',
       entities: [__dirname + '/../**/*.entity{.ts,.js}'],
-      synchronize: false,
+      synchronize: true,
       logging: true,
     };
   },

@@ -10,6 +10,14 @@ export class UserService {
     @InjectRepository(User) private userRepository: Repository<User>,
   ) {}
 
+  async getUserByEmail(email: string): Promise<User | undefined> {
+    return await this.userRepository.findOne({ where: { email } });
+  }
+
+  async getUserProfile(id: number): Promise<User | undefined> {
+    return await this.userRepository.findOne({ where: { id } });
+  }
+
   async registerUser(user: createUserDto): Promise<User> {
     const genSalt = await bcrypt.genSalt();
     const password = await bcrypt.hash(user.password, genSalt);

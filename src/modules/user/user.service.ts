@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import * as bcrypt from 'bcrypt';
@@ -19,6 +19,12 @@ export class UserService {
   }
 
   async registerUser(user: createUserDto): Promise<User> {
+    if (user.confirmPassword !== user.password) {
+      throw new HttpException(
+        'Both Password should be same',
+        HttpStatus.UNAUTHORIZED,
+      );
+    }
     const genSalt = await bcrypt.genSalt();
     const password = await bcrypt.hash(user.password, genSalt);
 

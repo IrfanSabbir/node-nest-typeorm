@@ -9,6 +9,7 @@ import { QuizModule } from './modules/quiz/quiz.module';
 import { UserModule } from './modules/user/user.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { ApiTokenCheckMiddleware } from './middleware/api-token-check.middleware';
+import { MulterModule } from '@nestjs/platform-express';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { ApiTokenCheckMiddleware } from './middleware/api-token-check.middleware
     //   ...config,
     // }),
     TypeOrmModule.forRootAsync(typeOrmAsyncConfig),
+    MulterModule.register({ dest: './uploads' }),
     QuizModule,
     UserModule,
     AuthModule,
